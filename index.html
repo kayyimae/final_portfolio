@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body,
+        html {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('https://images.unsplash.com/photo-1677784975579-b16f8028b555?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            height: 600px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #home {
+            text-align: left;
+            padding: 10px;
+        }
+
+        #home .clearfix {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home .img-container {
+            width: 100%;
+            padding: 0px;
+        }
+
+        #home img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10%;
+            margin-bottom: 35px;
+        }
+
+        #home div {
+            float: left;
+            width: 50%;
+            padding: 0px;
+        }
+
+        .home-h1 {
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            color: white;
+            font-size: 90px;
+            padding: 20px;
+            margin-bottom: 80px;
+        }
+
+        #home p {
+            color: white;
+            font-size: 19px;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin-top: -100px;
+        }
+
+        #home h3 {
+            color: white;
+            background-color: black;
+            font-size: 19px;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        nav {
+            text-align: right;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 1em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #6698;
+        }
+
+        nav a#home-link {
+            color: white;
+        }
+
+        nav a#about-link {
+            color: white;
+        }
+
+        nav a#projects-link {
+            color: white;
+        }
+
+        nav a#contact-link {
+            color: white;
+        }
+
+        section {
+            max-width: 800px;
+            margin: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            text-align: left;
+            font-family: "Papyrus", fantasy;
+            font-size: 40px
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            text-align: left;
+            font-family: "Courier";
+            font-size: 15px;
+        }
+
+        .about {
+            text-align: left;
+            font-family: 'Arial', sans-serif;
+            font-weight: lighter;
+            width: 100px;
+            height: 400px;
+        }
+
+        .about {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+
+        }
+
+        #about {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            padding: 10px;
+        }
+
+        #about h2 {
+            color: black;
+            text-align: center;
+            font-size: 30px;
+            background-color: pink;
+
+        }
+
+        #about p {
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #about img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 300%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        img {
+            float: right;
+        }
+
+        .project {
+            margin-bottom: 2em;
+        }
+
+        #projects h2 {
+            color: white;
+        }
+
+
+        .social-media-link {
+            font-family: 'Pacifico', cursive;
+            font-size: 20px;
+        }
+
+        #contact {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        #contact ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #contact li {
+            margin-bottom: 15px;
+        }
+
+        #contact a {
+            text-decoration: none;
+            border-bottom: none;
+            color: white;
+            transition: color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contact h2,
+        #contact p {
+            color: white;
+        }
+
+        #contact a img {
+            margin-right: 12px;
+        }
+
+        #contact .social-media-link:hover {
+            color: #917;
+        }
+
+        #contact a:hover {
+            color: #917;
+        }
+
+        #contact p {
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 425px) {
+            body,
+            html {
+                height: auto;
+                background-size: cover;
+            }
+
+            .home-h1 {
+                font-size: 3em;
+                width: 100%;
+                margin-top: 10px;
+            }
+            #home img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10%;
+                margin-bottom: 20px;
+            }
+
+            #home p {
+                font-size: 14px;
+                padding: 10px;
+                margin-top: -100px;
+            }
+            #home h3 {
+                font-size: 13.2px;
+                padding: 15px;
+            }
+
+            #about img {
+                max-height: 200px;
+                width: auto;
+            }
+            #about h2 {
+                font-size: 20px;
+                width: auto;
+            }
+            #about p {
+                font-size: 14px;
+                padding 10px;
+                width: auto;
+            }
+            #projects video {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+            #contact h2 {
+                font-size: 20px;
+            }
+            #contact p {
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            #contact ul {
+                padding: 0;
+            }
+            #contact li {
+                margin-bottom: 10px;
+            }
+            #contact a img {
+                margin-right: 6px;
+            }
+            nav {
+                text-align: right;
+            }
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+        }
+
+        @media only screen and (max-width: 375px) {
+            body,
+            html {
+                height: auto;
+                background-size: cover;
+            }
+            .home-h1 {
+                font-size: 2.7em;
+                width: 100%;
+                margin-top: 10px;
+            }
+            #home p {
+                font-size: 12px;
+                padding: 10px;
+                margin-top: -100px;
+            }
+            #home h3 {
+                font-size: 12px;
+                padding: 15px;
+            }
+            #projects video {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+            }
+            #contact p {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+            #contact ul {
+                padding: 0;
+            }
+            #contact li {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            #contact a img {
+                margin-right: 6px;
+            }
+            nav {
+                text-align: right;
+            }
+            nav a {
+                display: inline-block;
+                margin: 4px;
+            }
+            .avatar {
+                vertical-align: middle;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            body,
+            html {
+                height: auto;
+                background-size: cover;
+            }
+            .home-h1 {
+                font-size: 2em;
+                width: 100%;
+                margin-top: 10px;
+            }
+            #home p {
+                font-size: 12px;
+                padding: 10px;
+                margin-top: -100px;
+            }
+            #home h3 {
+                font-size: 10px;
+                padding: 15px;
+            }
+            #projects video {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+            #contact p {
+                font-size: 17px;
+                margin-top: 10px;
+            }
+            #contact ul {
+                padding: 0;
+            }
+            #contact li {
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+            #contact a img {
+                margin-right: 6px;
+            }
+            nav {
+                text-align: right;
+                font-size: 13px;
+            }
+            nav a {
+                display: inline-block;
+                margin: 1px;
+                padding: 0;
+            }
+            .avatar {
+                vertical-align: middle;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body onload="showSection('home')">
+
+
+    <avatar> <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t1.15752-9/369279110_318610170933807_5668497776703273096_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeEomXH23ZDPVybfhqoLD6PuLai6YRpDWJstqLphGkNYm72o0t7xahv74fgkXXF98tYlZ0PySvHOnfb7HYL38-Tz&_nc_ohc=Dn5sV2WMDAoAX8J1SgP&_nc_ht=scontent.fwnp1-1.fna&oh=03_AdTJdgW2S2seWoTZAb3jAOEiA34VBo_nUJ7DtUzN747qfA&oe=658923DE" class="avatar"> </avatar>
+
+    <nav>
+        <a href="#home" id="home-link" onclick="showSection('home')">Home</a>
+        <a href="#about" id="about-link" onclick="showSection('about')">About Me</a>
+        <a href="#projects" id="projects-link" onclick="showSection('projects')">Projects</a>
+        <a href="#contact" id="contact-link" onclick="showSection('contact')">Contact</a>
+    </nav>
+
+    <section id="home">
+        <div class="clearfix">
+            <div class="img-container">
+            </div>
+        </div>
+        <img src="https://scontent.fmnl3-3.fna.fbcdn.net/v/t1.15752-9/403408843_326344043683672_1976328354304280775_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFLltKPp_NLhgMqlQnGj76mjTZ967ZGy5ONNn3rtkbLk_rFkmR5274ZqmZtgl7_LGLv3GaN758HRcHMQu9QJwiP&_nc_ohc=leLYWWQZ3voAX9t3VBf&_nc_ht=scontent.fmnl3-3.fna&oh=03_AdQr4UCWNNHnvh93Mp07QwH8nRHowDzPk9rNjdR7JqVA-g&oe=659E125F" style="width:100%;height:100%">
+        <h1 class="home-h1">Erika Mae </h1>
+        <p>BS Computer Science <br> ADNU 1st year student </p>
+        <h3> "In the realm of algorithms and data structures, a computer science student crafts the blueprint for a digital future, where every challenge is a puzzle waiting to be solved." </h3>
+    </section>
+
+    </section>
+
+    <section id="about" style="display: none;">
+
+        <div class="about">
+            <h2>About Me</h2>
+            <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/366805321_1369377283649962_5422294605622323883_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9c7eae&_nc_eui2=AeFEAMLDIXTej1pW6KmOqWEGMBMDru4lrRMwEwOu7iWtE1pj8-j80z9DmiFk8I7Ck5FDHRMiokAOi2_CgSCR_o18&_nc_ohc=WyNiwL5TrPQAX_Q1L9L&_nc_ht=scontent.fwnp1-1.fna&oh=00_AfDiaZ8sw1AgHXh5unFKX7WWUMSDAs4JefOypleeOPs96w&oe=6581DE18" style="width:500px;height:500px">
+            <p> <i> I am Erika Mae Llona, currently pursuing a Bachelor of Science in Computer Science at Ateneo de Naga University. </i></p>
+            <h2> Educational Background </h2>
+            <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/305041993_567050565210900_9215769349700585205_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFejcruGTGr6nlOK7is1m6wxpGkXVN6L6DGkaRdU3ovoH9Wn3h3rGRb9KcLh-llOC5tmhQ6y2waQEiOGzyF4lrc&_nc_ohc=G-ANVdmrz-0AX8pEtpK&_nc_ht=scontent.fwnp1-1.fna&oh=00_AfAem5nG2rVPq___jeyHT9RjuNRBCKyMV1Nu6yFwDK9m4Q&oe=658013B3" style="width:500px;height:500px">
+            <p> <i> I spent my elementary years at Potot Elementary School and graduated as valedictorian in the year 2017. <i/></p>
+        <img src="https://scontent.fwnp1-1.fna.fbcdn.net/v/t39.30808-6/305813243_476931941113771_3696865932645388045_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=KtWkgdMBioAAX-98xY8&_nc_ht=scontent.fwnp1-1.fna&oh=00_AfAG3XNd0CfX2nS-7T2uZMP0stbdJgoYkKJ899xpy56zAw&oe=6580BD05" style="width:500px;height:500px">
+        <p> <i> I studied junior high at Carmel National High School and was consistently an honor student until the moving up. </i></p>
+            <img src="https://scontent.fmnl3-3.fna.fbcdn.net/v/t39.30808-6/303675021_467902118688381_2489399380888938685_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEivVyeNFfzUfNVymACc3TNquY0TvbFgcqq5jRO9sWByknf-Niqu6FZXP8xCRGcxsE2Jd0cOUPFVc0K9zIczRsy&_nc_ohc=Xtq9BsDTAbQAX_CO1qX&_nc_ht=scontent.fmnl3-3.fna&oh=00_AfDHtuvu9AmHNzZaDIbeYN5NbEYIQD4mPmvtvVxSTKridA&oe=657C52AB" style="width:500px;height:500px">
+            <p><i> I attended senior high school at Bicol Central Academy, where I maintained a consistent record as an honor student. Additionally, I participated in pageantry, earning two minor awards and securing the title of Ms. Litmusda 2022 in the Grade 11 category. </i></p>
+            <img src="https://scontent.fmnl3-1.fna.fbcdn.net/v/t1.6435-9/29249243_1241076839355889_7219511274894262272_n.png?stp=dst-png&_nc_cat=101&ccb=1-7&_nc_sid=7a1959&_nc_eui2=AeHXdT4TYBM9iN40tYS_W8AMAnIoZCzcnCwCcihkLNycLOhRtCpiDan2k09W7s9Tp2BJ0v1ga40CEkRbD_-aPha1&_nc_ohc=rZXJAuvqPT0AX83MC7v&_nc_ht=scontent.fmnl3-1.fna&oh=00_AfDTZnwu3rwZ2_pCMC69Q5H4V8FWQxw-jd0_n7DMPc7HaA&oe=659E0E09" style="width:500px;height:400px">
+            <p><i> At present, I am a first-year student studying BS Computer Science at Ateneo de Naga University. </i></p>
+    </section>
+
+    <section id="projects" style="display: none;">
+        <h2>Projects</h2>
+
+        <video src="404967840_6895054797216792_2990882157684885272_n.mp4" controls autoplay unmuted loop style="width:500px;height:500px"></video>
+
+        <video src="404350667_7066929373359174_1001659420948352192_n.mp4" controls autoplay unmuted loop style="width:500px;height:500px"></video>
+
+        <video src="404370319_6877269582387228_7766441821377717587_n.mp4" controls autoplay unmuted loop style="width:500px;height:500px"></video>
+
+        <video src="405288978_7117099675001719_963128576724190516_n.mp4" controls autoplay unmuted loop style="width:500px;height:500px"></video>
+
+
+    </section>
+
+    <section id="contact" style="display: none;">
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me through the following channels:</p>
+        <ul>
+            <li> <a href="mailto:ellona@gbox.adnu.edu.ph" class="social-media-link">
+    <img src="https://img.icons8.com/?size=50&id=63490&format=png" alt="Email" width="20" height="20"> ellona@gbox.adnu.edu.ph
+         </a>
+            </li>
+
+            <li> <a href="https://www.facebook.com/qtzz.ikayy" class="social-media-link">
+                <img src="https://img.icons8.com/?size=50&id=8818&format=png" alt="Facebook" width="20" height="20"> Erika Mae Velardo Llona
+            </a>
+            </li>
+            <li> <a href="https://t.me/eungye" class="social-media-link">
+                <img src="https://img.icons8.com/?size=50&id=lUktdBVdL4Kb&format=png" alt="Telegram" width="20" height="20"> eungye
+            </a>
+            </li>
+            <li> <a href="https://instagram.com/ichikayy_?igshid=OGQ5ZDc2ODk2ZA==" class="social-media-link">
+                <img src="https://img.icons8.com/?size=30&id=59813&format=png" alt="Instagram" width="20" height="20"> ichikayy_
+            </a>
+            </li>
+            <li> <a href="https://twitter.com/kremamo" class="social-media-link">
+                <img src="https://img.icons8.com/?size=50&id=phOKFKYpe00C&format=png" alt="Twitter" width="20" height="20"> kremamo
+            </a>
+            </li>
+            <br>
+            <p>&copy; 2023 Erika Mae Llona</p>
+        </ul>
+    </section>
+
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+
+            document.getElementById(sectionId).style.display = 'block';
+
+            var section = document.getElementById(sectionId);
+            section.style.display = 'block';
+
+            if (sectionId === 'about') {
+                animateAboutText();
+            } else {
+                animateSection(sectionId);
+            }
+        }
+
+        function animateAboutText() {
+            var aboutSection = document.querySelector('.about');
+            aboutSection.style.animation = 'none';
+            aboutSection.offsetHeight;
+            aboutSection.style.animation = null;
+            aboutSection.style.animation = 'fadeIn 1.5s ease-in-out forwards';
+        }
+
+        function animateSection(sectionId) {
+            var currentSection = document.getElementById(sectionId);
+            currentSection.style.animation = 'none';
+            currentSection.offsetHeight;
+            currentSection.style.animation = null;
+            currentSection.style.animation = 'fadeIn 1.5s ease-in-out forwards';
+        }
+    </script>
+
+</body>
+
+</html>
